@@ -37,7 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		00C80BF1DD20575F3E6DB781990C1C3E /* UIPopupMenu.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = UIPopupMenu.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		00C80BF1DD20575F3E6DB781990C1C3E /* UIPopupMenu.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = UIPopupMenu.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		08661CE51C2A06E15AF481D6DD243849 /* Pods-UIPopupMenu_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-UIPopupMenu_Example-frameworks.sh"; sourceTree = "<group>"; };
 		0F9BABEB499CA1A1BE053788473D652A /* Pods-UIPopupMenu_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-UIPopupMenu_Example.modulemap"; sourceTree = "<group>"; };
 		13C5E637B70099F52BE3F3E72DF34F17 /* UIPopupMenu */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = UIPopupMenu; path = UIPopupMenu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -45,28 +45,28 @@
 		2353D448BEF6A113EA1CD4469DB72BD2 /* Pods-UIPopupMenu_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-UIPopupMenu_Example-dummy.m"; sourceTree = "<group>"; };
 		2A31A496E982A611C411973397B272C6 /* Pods-UIPopupMenu_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-UIPopupMenu_Example.release.xcconfig"; sourceTree = "<group>"; };
 		2BF3C9AC7A65D19A98C79E0D80788505 /* UIPopupMenu-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIPopupMenu-umbrella.h"; sourceTree = "<group>"; };
-		32C927B4E09441B76E6B8D6FEB18BAC1 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
-		35E1F6901FC038552946801C870072A3 /* ASSectionHeaderView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ASSectionHeaderView.swift; path = UIPopupMenu/Classes/ASSectionHeaderView.swift; sourceTree = "<group>"; };
+		32C927B4E09441B76E6B8D6FEB18BAC1 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		35E1F6901FC038552946801C870072A3 /* ASSectionHeaderView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ASSectionHeaderView.swift; sourceTree = "<group>"; };
 		397606D2B7AD27E9D57620CCD15FF634 /* Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = UIPopupMenu/Classes/Extensions.swift; sourceTree = "<group>"; };
-		40D2F7D762999DB5B20572023C231EEA /* AutoHeightTableView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AutoHeightTableView.swift; path = UIPopupMenu/Classes/AutoHeightTableView.swift; sourceTree = "<group>"; };
+		40D2F7D762999DB5B20572023C231EEA /* AutoHeightTableView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AutoHeightTableView.swift; sourceTree = "<group>"; };
 		44645BE6F506A786908EAF882F116756 /* Pods-UIPopupMenu_Example */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-UIPopupMenu_Example"; path = Pods_UIPopupMenu_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		44E9DD5CB35054DCAC717C77AA709901 /* ASPopupPresentationController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ASPopupPresentationController.swift; path = UIPopupMenu/Classes/ASPopupPresentationController.swift; sourceTree = "<group>"; };
-		4D5CD7681B2C065A1B4CE90BECB3EB02 /* ASPickerCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ASPickerCell.swift; path = UIPopupMenu/Classes/ASPickerCell.swift; sourceTree = "<group>"; };
+		44E9DD5CB35054DCAC717C77AA709901 /* ASPopupPresentationController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ASPopupPresentationController.swift; sourceTree = "<group>"; };
+		4D5CD7681B2C065A1B4CE90BECB3EB02 /* ASPickerCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ASPickerCell.swift; sourceTree = "<group>"; };
 		5F2B514C14CD938BB815617C2EEED88E /* UIPopupMenu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = UIPopupMenu.release.xcconfig; sourceTree = "<group>"; };
-		7D7BA6F3730F03F4C9888053227265EB /* ASPickableListViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ASPickableListViewController.swift; path = UIPopupMenu/Classes/ASPickableListViewController.swift; sourceTree = "<group>"; };
-		7EAC18ADB15B1C21D4F2FE9B5C8CE87C /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		7D7BA6F3730F03F4C9888053227265EB /* ASPickableListViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ASPickableListViewController.swift; sourceTree = "<group>"; };
+		7EAC18ADB15B1C21D4F2FE9B5C8CE87C /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		8F6C69E0AFE6552A9227938459F84D8F /* UIPopupMenu-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "UIPopupMenu-Info.plist"; sourceTree = "<group>"; };
-		94877945CA24E5A8DDF1D2A07EDF5DAA /* ASPopupPresentationController + Transition.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ASPopupPresentationController + Transition.swift"; path = "UIPopupMenu/Classes/ASPopupPresentationController + Transition.swift"; sourceTree = "<group>"; };
+		94877945CA24E5A8DDF1D2A07EDF5DAA /* ASPopupPresentationController + Transition.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "ASPopupPresentationController + Transition.swift"; sourceTree = "<group>"; };
 		98D7240C71A7A82B35FCA201B2823BF8 /* Pods-UIPopupMenu_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-UIPopupMenu_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A1CE59772E2F64887676982C1F3FA179 /* Pods-UIPopupMenu_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-UIPopupMenu_Example-umbrella.h"; sourceTree = "<group>"; };
 		A24BAD795E4D052F17E316BCE6968A85 /* Pods-UIPopupMenu_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-UIPopupMenu_Example-acknowledgements.plist"; sourceTree = "<group>"; };
-		A4FA6476E2FAE2936DFD05E601F4B4F3 /* GenericTableViewHeaderFooterView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GenericTableViewHeaderFooterView.swift; path = UIPopupMenu/Classes/GenericTableViewHeaderFooterView.swift; sourceTree = "<group>"; };
-		AEEFD7DB0A5F1CB7CEF3ADC33219F98E /* ASTableTrackingController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ASTableTrackingController.swift; path = UIPopupMenu/Classes/ASTableTrackingController.swift; sourceTree = "<group>"; };
+		A4FA6476E2FAE2936DFD05E601F4B4F3 /* GenericTableViewHeaderFooterView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GenericTableViewHeaderFooterView.swift; sourceTree = "<group>"; };
+		AEEFD7DB0A5F1CB7CEF3ADC33219F98E /* ASTableTrackingController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ASTableTrackingController.swift; sourceTree = "<group>"; };
 		B330D65D3E9CA819D45AAAB226B067E9 /* UIPopupMenu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = UIPopupMenu.debug.xcconfig; sourceTree = "<group>"; };
 		C0A33530B843808C83DA82D378500950 /* UIPopupMenu-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIPopupMenu-prefix.pch"; sourceTree = "<group>"; };
 		C3A8D6A1E09C72C14874AC1D12DA5A50 /* Pods-UIPopupMenu_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-UIPopupMenu_Example-Info.plist"; sourceTree = "<group>"; };
-		CE05F780134F2C24FB80C697E48EBF96 /* ASCutoutShadowView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ASCutoutShadowView.swift; path = UIPopupMenu/Classes/ASCutoutShadowView.swift; sourceTree = "<group>"; };
+		CE05F780134F2C24FB80C697E48EBF96 /* ASCutoutShadowView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ASCutoutShadowView.swift; sourceTree = "<group>"; };
 		D245E0514AAC1A2B9A6D5EA2F383E90F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		D9FA2191890B314ED56DD7445B0FF728 /* Pods-UIPopupMenu_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-UIPopupMenu_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		EAB6F611E86A4758835A715E4B4184F6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
@@ -150,21 +150,37 @@
 		B5B5BE2AB6A2B61DA7940D3970530E45 /* UIPopupMenu */ = {
 			isa = PBXGroup;
 			children = (
-				CE05F780134F2C24FB80C697E48EBF96 /* ASCutoutShadowView.swift */,
-				7D7BA6F3730F03F4C9888053227265EB /* ASPickableListViewController.swift */,
-				4D5CD7681B2C065A1B4CE90BECB3EB02 /* ASPickerCell.swift */,
-				44E9DD5CB35054DCAC717C77AA709901 /* ASPopupPresentationController.swift */,
-				94877945CA24E5A8DDF1D2A07EDF5DAA /* ASPopupPresentationController + Transition.swift */,
-				35E1F6901FC038552946801C870072A3 /* ASSectionHeaderView.swift */,
-				AEEFD7DB0A5F1CB7CEF3ADC33219F98E /* ASTableTrackingController.swift */,
-				40D2F7D762999DB5B20572023C231EEA /* AutoHeightTableView.swift */,
+				C0DE7F5B29ACE76D00EB0F94 /* PopupController */,
+				C0DE7F5C29ACE78200EB0F94 /* MenuList */,
 				397606D2B7AD27E9D57620CCD15FF634 /* Extensions.swift */,
-				A4FA6476E2FAE2936DFD05E601F4B4F3 /* GenericTableViewHeaderFooterView.swift */,
 				05F2ABDFB6D15AC23DAEE6F114B314A5 /* Pod */,
 				D11B756C495E05FE44469BFDD4D8E63E /* Support Files */,
 			);
 			name = UIPopupMenu;
 			path = ../..;
+			sourceTree = "<group>";
+		};
+		C0DE7F5B29ACE76D00EB0F94 /* PopupController */ = {
+			isa = PBXGroup;
+			children = (
+				CE05F780134F2C24FB80C697E48EBF96 /* ASCutoutShadowView.swift */,
+				44E9DD5CB35054DCAC717C77AA709901 /* ASPopupPresentationController.swift */,
+				94877945CA24E5A8DDF1D2A07EDF5DAA /* ASPopupPresentationController + Transition.swift */,
+			);
+			path = PopupController;
+			sourceTree = "<group>";
+		};
+		C0DE7F5C29ACE78200EB0F94 /* MenuList */ = {
+			isa = PBXGroup;
+			children = (
+				40D2F7D762999DB5B20572023C231EEA /* AutoHeightTableView.swift */,
+				AEEFD7DB0A5F1CB7CEF3ADC33219F98E /* ASTableTrackingController.swift */,
+				7D7BA6F3730F03F4C9888053227265EB /* ASPickableListViewController.swift */,
+				4D5CD7681B2C065A1B4CE90BECB3EB02 /* ASPickerCell.swift */,
+				A4FA6476E2FAE2936DFD05E601F4B4F3 /* GenericTableViewHeaderFooterView.swift */,
+				35E1F6901FC038552946801C870072A3 /* ASSectionHeaderView.swift */,
+			);
+			path = MenuList;
 			sourceTree = "<group>";
 		};
 		C6FC0287E7D10A41045E90CFDBB86079 /* Targets Support Files */ = {
@@ -540,8 +556,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
 			};
