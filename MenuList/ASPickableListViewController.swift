@@ -75,7 +75,7 @@ final public class ASPickableListViewController: ASTableTrackingController {
         
         tableView.dataSource = self
         tableView.delegate = self
-        //tableView.allowsHeaderViewsToFloat = false
+        tableView.allowsHeaderViewsToFloat = false
         tableView.separatorEffect = UIVibrancyEffect(blurEffect: .init(style: .systemMaterialLight), style: .separator)
         tableView.register(ASPickerCell.self, forCellReuseIdentifier: "pickerCell")
         

@@ -22,6 +22,7 @@
 		B27339720CE0472E8E0CAC4377291232 /* ASPopupPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E9DD5CB35054DCAC717C77AA709901 /* ASPopupPresentationController.swift */; };
 		B4AB2780780BB2AAF53E4106B4482143 /* Pods-UIPopupMenu_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A1CE59772E2F64887676982C1F3FA179 /* Pods-UIPopupMenu_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BE32992D7260099039E7A8037B55B1C3 /* AutoHeightTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D2F7D762999DB5B20572023C231EEA /* AutoHeightTableView.swift */; };
+		C0DE7F5E29ACE7DA00EB0F94 /* UITableView + StickyHeaders.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DE7F5D29ACE7DA00EB0F94 /* UITableView + StickyHeaders.swift */; };
 		D672670C4F3B28CCEB59158501E0E0A9 /* ASPickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5CD7681B2C065A1B4CE90BECB3EB02 /* ASPickerCell.swift */; };
 		FBCFAA1CEC3B00F3CADA63AC1B712023 /* ASPickableListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7BA6F3730F03F4C9888053227265EB /* ASPickableListViewController.swift */; };
 /* End PBXBuildFile section */
@@ -65,6 +66,7 @@
 		AEEFD7DB0A5F1CB7CEF3ADC33219F98E /* ASTableTrackingController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ASTableTrackingController.swift; sourceTree = "<group>"; };
 		B330D65D3E9CA819D45AAAB226B067E9 /* UIPopupMenu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = UIPopupMenu.debug.xcconfig; sourceTree = "<group>"; };
 		C0A33530B843808C83DA82D378500950 /* UIPopupMenu-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIPopupMenu-prefix.pch"; sourceTree = "<group>"; };
+		C0DE7F5D29ACE7DA00EB0F94 /* UITableView + StickyHeaders.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView + StickyHeaders.swift"; sourceTree = "<group>"; };
 		C3A8D6A1E09C72C14874AC1D12DA5A50 /* Pods-UIPopupMenu_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-UIPopupMenu_Example-Info.plist"; sourceTree = "<group>"; };
 		CE05F780134F2C24FB80C697E48EBF96 /* ASCutoutShadowView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ASCutoutShadowView.swift; sourceTree = "<group>"; };
 		D245E0514AAC1A2B9A6D5EA2F383E90F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
@@ -153,6 +155,7 @@
 				C0DE7F5B29ACE76D00EB0F94 /* PopupController */,
 				C0DE7F5C29ACE78200EB0F94 /* MenuList */,
 				397606D2B7AD27E9D57620CCD15FF634 /* Extensions.swift */,
+				C0DE7F5D29ACE7DA00EB0F94 /* UITableView + StickyHeaders.swift */,
 				05F2ABDFB6D15AC23DAEE6F114B314A5 /* Pod */,
 				D11B756C495E05FE44469BFDD4D8E63E /* Support Files */,
 			);
@@ -291,7 +294,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1300;
-				LastUpgradeCheck = 1300;
+				LastUpgradeCheck = 1400;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -335,6 +338,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5EA4508286976698D2253139CE5BD07F /* ASCutoutShadowView.swift in Sources */,
+				C0DE7F5E29ACE7DA00EB0F94 /* UITableView + StickyHeaders.swift in Sources */,
 				FBCFAA1CEC3B00F3CADA63AC1B712023 /* ASPickableListViewController.swift in Sources */,
 				D672670C4F3B28CCEB59158501E0E0A9 /* ASPickerCell.swift in Sources */,
 				B27339720CE0472E8E0CAC4377291232 /* ASPopupPresentationController.swift in Sources */,
@@ -470,6 +474,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -536,6 +541,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
