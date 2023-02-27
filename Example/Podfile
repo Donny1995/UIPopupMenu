@@ -1,0 +1,13 @@
+use_frameworks!
+
+platform :ios, '10.0'
+
+target 'UIPopupMenu_Example' do
+  pod 'UIPopupMenu', :path => '../'
+
+  target 'UIPopupMenu_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
