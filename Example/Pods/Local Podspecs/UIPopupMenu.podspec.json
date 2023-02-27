@@ -1,8 +1,8 @@
 {
   "name": "UIPopupMenu",
-  "version": "0.1.0",
-  "summary": "A short description of UIPopupMenu.",
-  "description": "TODO: Add long description of the pod here.",
+  "version": "1.0.0",
+  "summary": "Framework for creating UIMenu alike controllers just like Apple's",
+  "description": "This took hours to replicate",
   "homepage": "https://github.com/Donny1995/UIPopupMenu",
   "license": {
     "type": "MIT",
@@ -13,10 +13,13 @@
   },
   "source": {
     "git": "https://github.com/Donny1995/UIPopupMenu.git",
-    "tag": "0.1.0"
+    "tag": "1.0.0"
   },
   "platforms": {
-    "ios": "10.0"
+    "ios": "13.0"
   },
-  "source_files": "UIPopupMenu/Classes/**/*"
+  "swift_versions": "5.0",
+  "source_files": "UIPopupMenu/Classes/**/*",
+  "frameworks": "UIKit",
+  "swift_version": "5.0"
 }
