@@ -1,0 +1,22 @@
+{
+  "name": "UIPopupMenu",
+  "version": "0.1.0",
+  "summary": "A short description of UIPopupMenu.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/Donny1995/UIPopupMenu",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Donny1995": "sanny199955@mail.ru"
+  },
+  "source": {
+    "git": "https://github.com/Donny1995/UIPopupMenu.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "source_files": "UIPopupMenu/Classes/**/*"
+}

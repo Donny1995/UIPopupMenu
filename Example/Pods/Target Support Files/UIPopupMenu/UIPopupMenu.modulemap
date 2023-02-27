@@ -1,0 +1,6 @@
+framework module UIPopupMenu {
+  umbrella header "UIPopupMenu-umbrella.h"
+
+  export *
+  module * { export * }
+}

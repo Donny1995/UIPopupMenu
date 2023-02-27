@@ -1,0 +1,16 @@
+PODS:
+  - UIPopupMenu (0.1.0)
+
+DEPENDENCIES:
+  - UIPopupMenu (from `../`)
+
+EXTERNAL SOURCES:
+  UIPopupMenu:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  UIPopupMenu: 00d26d78d3d1ce409facb35ecd281b2b82d8eac7
+
+PODFILE CHECKSUM: 4a7c9c318bdfc9de31b1b225fbb4c96ffdadcad9
+
+COCOAPODS: 1.11.3
