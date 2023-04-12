@@ -397,6 +397,7 @@ public class ASPopupPresentationView: UIView {
                 self.autoresizesSubviews = wasAutoresizing
                 self.isBeingPresented = false
                 self.contentViewSizeUpdateLocked = false
+                self.subscribeForKeyboardNotifications()
                 completion?(true)
             }
             
@@ -418,6 +419,7 @@ public class ASPopupPresentationView: UIView {
         
         isBeingDismissed = true
         contentViewSizeUpdateLocked = true
+        unSubscribeFromKeyboardNotifications()
         
         if animated {
             
@@ -494,6 +496,30 @@ public class ASPopupPresentationView: UIView {
             } else {
                 return nil
             }
+        }
+    }
+    
+    //MARK: - 📦 Keyboard
+    var observations: [NSObjectProtocol] = []
+    func subscribeForKeyboardNotifications() {
+        observations = [
+            NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillShowNotification, object: nil, queue: .main) { [weak self] notification in
+                self?.contentViewPreferredContentSizeDidChange(newSize: .zero)
+            },
+            
+            NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillHideNotification, object: nil, queue: .main) { [weak self] notification in
+                self?.contentViewPreferredContentSizeDidChange(newSize: .zero)
+            },
+            
+            NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillChangeFrameNotification, object: nil, queue: .main) { [weak self] notification in
+                self?.contentViewPreferredContentSizeDidChange(newSize: .zero)
+            }
+        ]
+    }
+    
+    func unSubscribeFromKeyboardNotifications() {
+        for observation in observations {
+            NotificationCenter.default.removeObserver(observation)
         }
     }
 }
