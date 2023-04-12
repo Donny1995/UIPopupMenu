@@ -13,6 +13,7 @@
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		C071BF4829AC98F800B0FFDD /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C071BF4729AC98F800B0FFDD /* TestViewController.swift */; };
+		C0D5CFD829E6D09700440B2B /* TextFieldTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D5CFD729E6D09700440B2B /* TextFieldTestViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		968AC0CDA94C67C5E23DA0B5 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		B41A795522FEB2B628BB91DF /* Pods-UIPopupMenu_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UIPopupMenu_Tests.debug.xcconfig"; path = "Target Support Files/Pods-UIPopupMenu_Tests/Pods-UIPopupMenu_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		C071BF4729AC98F800B0FFDD /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		C0D5CFD729E6D09700440B2B /* TextFieldTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldTestViewController.swift; sourceTree = "<group>"; };
 		CD655CB10E588825711A8BD8 /* Pods_UIPopupMenu_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UIPopupMenu_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7E8B95CADE8DB4F1F3EFD2E /* UIPopupMenu.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = UIPopupMenu.podspec; path = ../UIPopupMenu.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		DDB16A714137A222A67F1C89 /* Pods-UIPopupMenu_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UIPopupMenu_Example.release.xcconfig"; path = "Target Support Files/Pods-UIPopupMenu_Example/Pods-UIPopupMenu_Example.release.xcconfig"; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 			children = (
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				C071BF4729AC98F800B0FFDD /* TestViewController.swift */,
+				C0D5CFD729E6D09700440B2B /* TextFieldTestViewController.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
@@ -256,6 +259,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C071BF4829AC98F800B0FFDD /* TestViewController.swift in Sources */,
+				C0D5CFD829E6D09700440B2B /* TextFieldTestViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

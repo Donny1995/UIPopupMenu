@@ -102,11 +102,11 @@ public class ASPopupPresentationView: UIView {
         blurView.contentView.addSubview(contentView)
         NSLayoutConstraint.activate([
             contentView.leadingAnchor.constraint(equalTo: contentView.superview!.leadingAnchor),
-            contentView.trailingAnchor.constraint(equalTo: contentView.superview!.trailingAnchor),
+            contentView.trailingAnchor.constraint(equalTo: contentView.superview!.trailingAnchor).priority(800),
             contentView.topAnchor.constraint(equalTo: contentView.superview!.topAnchor),
         ])
         
-        contentViewBottomConstraint = contentView.bottomAnchor.constraint(equalTo: contentView.superview!.bottomAnchor).activate()
+        contentViewBottomConstraint = contentView.bottomAnchor.constraint(equalTo: contentView.superview!.bottomAnchor).priority(900).activate()
         
         layer.shadowColor = UIColor.black.cgColor
         layer.shadowRadius = 64
@@ -129,6 +129,7 @@ public class ASPopupPresentationView: UIView {
     }
     
     var cachedSizeOfContentView: CGSize?
+    var contentViewPreferredContentSizeUpdateToken: TimeInterval = .nan
     func contentViewPreferredContentSizeDidChange(newSize: CGSize) {
         
         guard !(contentViewSizeUpdateLocked && isBeingPresented && isBeingDismissed) else {
@@ -139,13 +140,6 @@ public class ASPopupPresentationView: UIView {
         guard let newParams = calculateContainerViewFrame(), cachedSizeOfContentView != newParams.rect.size else { return }
         cachedSizeOfContentView = newParams.rect.size
         contentViewSizeUpdateLocked = true
-        
-//        for view in sequence(first: contentView, next: \.superview) {
-//            view.setNeedsLayout()
-//            if view == containerView {
-//                break
-//            }
-//        }
         
         func performAnimationActions() {
             positionContentViewIfNeeded(params: newParams)
@@ -159,9 +153,14 @@ public class ASPopupPresentationView: UIView {
             performAnimationActions()
             
         } else {
-            
+            let newToken = Date().timeIntervalSince1970
+            contentViewPreferredContentSizeUpdateToken = newToken
             UIView.animate(withDuration: 1/3, delay: 0.0, options: [.beginFromCurrentState, .layoutSubviews, .allowAnimatedContent], animations: performAnimationActions) { [weak self] _ in
-                self?.contentViewSizeUpdateLocked = false
+                guard let self, self.contentViewPreferredContentSizeUpdateToken == newToken else {
+                    return
+                }
+                
+                self.contentViewSizeUpdateLocked = false
             }
         }
     }
@@ -233,7 +232,6 @@ public class ASPopupPresentationView: UIView {
         }
         
         if let window = originView?.window {
-            
             cachedSafeInsets = window.safeAreaInsets
             
             cachedAvailableArea = window.bounds.inset(by: UIEdgeInsets(
@@ -242,6 +240,11 @@ public class ASPopupPresentationView: UIView {
                 bottom: max(cachedSafeInsets.bottom, 16),
                 right: max(cachedSafeInsets.right, 16)
             ))
+            
+            let keyboardFrame = KeyboardListener.keyboardRect
+            if keyboardFrame != CGRect.null {
+                cachedSafeInsets.bottom += keyboardFrame.height
+            }
         }
         
         let originViewFrame = cachedOriginViewRect
@@ -315,6 +318,10 @@ public class ASPopupPresentationView: UIView {
             origin: .init(x: xOrigin, y: yOrigin),
             size: CGSize(width: clampedWidth, height: clampedHeight)
         )
+        
+        if finalFrame.origin.x >= 100 {
+            print("wut")
+        }
         
         return (finalFrame, goesBelow)
     }
