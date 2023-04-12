@@ -13,14 +13,22 @@ import UIPopupMenu
 class TestViewController: UIViewController {
     
     let button1 = UIButton()
+    let scrollView = UIScrollView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = .white
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(scrollView)
+        NSLayoutConstraint.activate([
+            scrollView.topAnchor.constraint(equalTo: scrollView.superview!.topAnchor),
+            scrollView.leftAnchor.constraint(equalTo: scrollView.superview!.leftAnchor),
+            scrollView.rightAnchor.constraint(equalTo: scrollView.superview!.rightAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: scrollView.superview!.bottomAnchor),
+        ])
         
-        
-        view.addSubview(button1)
+        scrollView.addSubview(button1)
         button1.center = .init(x: 200, y: 300)
         button1.translatesAutoresizingMaskIntoConstraints = false
         button1.centerXAnchor.constraint(equalTo: button1.superview!.centerXAnchor).isActive = true
@@ -40,28 +48,28 @@ class TestViewController: UIViewController {
         
         let redSubview = UIView()
         redSubview.backgroundColor = .red
-        view.addSubview(redSubview)
+        scrollView.addSubview(redSubview)
         redSubview.translatesAutoresizingMaskIntoConstraints = false
-        redSubview.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -30.0).isActive = true
-        redSubview.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 60.0).isActive = true
+        redSubview.centerYAnchor.constraint(equalTo: redSubview.superview!.centerYAnchor, constant: -30.0).isActive = true
+        redSubview.centerXAnchor.constraint(equalTo: redSubview.superview!.centerXAnchor, constant: 60.0).isActive = true
         redSubview.widthAnchor.constraint(equalToConstant: 40).isActive = true
         redSubview.heightAnchor.constraint(equalToConstant: 40).isActive = true
         
         let greenSubview = UIView()
         greenSubview.backgroundColor = .green
-        view.addSubview(greenSubview)
+        scrollView.addSubview(greenSubview)
         greenSubview.translatesAutoresizingMaskIntoConstraints = false
-        greenSubview.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -80.0).isActive = true
-        greenSubview.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 60.0).isActive = true
+        greenSubview.centerYAnchor.constraint(equalTo: greenSubview.superview!.centerYAnchor, constant: -80.0).isActive = true
+        greenSubview.centerXAnchor.constraint(equalTo: greenSubview.superview!.centerXAnchor, constant: 60.0).isActive = true
         greenSubview.widthAnchor.constraint(equalToConstant: 40).isActive = true
         greenSubview.heightAnchor.constraint(equalToConstant: 40).isActive = true
         
         let button2 = UIButton()
-        view.addSubview(button2)
+        scrollView.addSubview(button2)
         button2.translatesAutoresizingMaskIntoConstraints = false
         button2.centerXAnchor.constraint(equalTo: button2.superview!.centerXAnchor).isActive = true
         button2.centerYAnchor.constraint(equalTo: button2.superview!.centerYAnchor, constant: 100).isActive = true
-        
+        button2.bottomAnchor.constraint(equalTo: button2.superview!.bottomAnchor, constant: -400).isActive = true
         button2.setTitle("System", for: .normal)
         button2.setTitleColor(UIColor.systemBlue, for: .normal)
         
@@ -142,15 +150,15 @@ class TestViewController: UIViewController {
         content.delegate = self
         //content.title = "Test Popup"
         
-        //isLoading = true
-        //content.setLoading(loading: true, animated: false)
+        isLoading = true
+        content.setLoading(loading: true, animated: false)
         
         let presentationView = ASPopupPresentationView(contentView: content, originView: sender)
+        presentationView?.canOverlapSourceViewRect = true
         presentationView?.present(animated: true, completion: { [self] success in
-            //isLoading = false
-            //content.setLoading(loading: false, animated: true)
-            //content.tableView.reloadData()
-            //content.tableView.layoutIfNeeded()
+            isLoading = false
+            content.setLoading(loading: false, animated: true)
+            content.tableView.reloadData()
         })
     }
     
@@ -167,7 +175,16 @@ class TestViewController: UIViewController {
         ], [
             ASPickableListView.CellItem(title: "Simple item with very long title that barely fits to the screen", image: UIImage(systemName: "trash"), subTitle: "with sub title that barely fits to the screen", isSelected: true),
             ASPickableListView.CellItem(title: "Simple item with very long title that barely fits to the screen", image: UIImage(systemName: "trash"), subTitle: "with sub title that barely fits to the screen", attributes: [.disabled]),
-        ]
+        ], [
+            ASPickableListView.CellItem(title: "Simple item with very long title that barely fits to the screen", image: UIImage(systemName: "trash"), subTitle: "with sub title that barely fits to the screen", isSelected: true),
+            ASPickableListView.CellItem(title: "Simple item with very long title that barely fits to the screen", image: UIImage(systemName: "trash"), subTitle: "with sub title that barely fits to the screen", attributes: [.disabled]),
+        ], [
+            ASPickableListView.CellItem(title: "Simple item"),
+            ASPickableListView.CellItem(title: "Simple item", subTitle: "with sub title"),
+            ASPickableListView.CellItem(title: "Selected item", subTitle: "with sub title", isSelected: true),
+            ASPickableListView.CellItem(title: "Disabled item", subTitle: "with sub title", attributes: [.disabled]),
+            ASPickableListView.CellItem(title: "Desctructive item", subTitle: "with sub title", attributes: [.destructive]),
+        ],
     ]
 }
 

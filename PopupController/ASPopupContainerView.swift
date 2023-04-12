@@ -35,11 +35,8 @@ public class ASPopupPresentationView: UIView {
     )))
     
     let blurView = UIVisualEffectView(effect: UIBlurEffect(style: .systemMaterial))
-    
-    var canOverlapSourceViewRect: Bool = true
-    
-    ///Still, greater than 50 and less than available screen space
-    var maxHeight: CGFloat?
+    public var canOverlapSourceViewRect: Bool = true
+    public var overlapSourceViewRectScaleFactor: CGFloat = 0.7
     
     public init?(contentView: UIView, originView: UIView, interactionPoint: CGPoint? = nil) {
         guard let window = originView.window else { return nil }
@@ -143,12 +140,12 @@ public class ASPopupPresentationView: UIView {
         cachedSizeOfContentView = newParams.rect.size
         contentViewSizeUpdateLocked = true
         
-        for view in sequence(first: contentView, next: \.superview) {
-            view.setNeedsLayout()
-            if view == containerView {
-                break
-            }
-        }
+//        for view in sequence(first: contentView, next: \.superview) {
+//            view.setNeedsLayout()
+//            if view == containerView {
+//                break
+//            }
+//        }
         
         func performAnimationActions() {
             positionContentViewIfNeeded(params: newParams)
@@ -272,7 +269,7 @@ public class ASPopupPresentationView: UIView {
         
         let clampedWidth = min(availableArea.width, max(60, preferredSize.width))
         
-        let xOrigin = (interactionPoint?.x ?? originViewFrame.midX).clamp(
+        let xOrigin = (interactionPoint?.x ?? originViewFrame.midX).clamped(
             min: availableArea.minX + clampedWidth/2,
             max: availableArea.maxX - clampedWidth/2
         ) - clampedWidth/2
@@ -300,13 +297,16 @@ public class ASPopupPresentationView: UIView {
             : originViewFrame.minY - clampedHeight
         
         if canOverlapSourceViewRect {
-            if clampedHeight < preferredSize.height && preferredSize.height <= availableArea.height {
+            let clampedScaleFactor = overlapSourceViewRectScaleFactor.clamped(min: 0.0, max: 1.0)
+            let overlapScaledHeight = min(availableArea.height, preferredSize.height) * overlapSourceViewRectScaleFactor
+            if clampedHeight < overlapScaledHeight {
+                let difference = overlapScaledHeight - clampedHeight
                 if goesBelow {
-                    yOrigin -= preferredSize.height - clampedHeight
-                    clampedHeight = preferredSize.height
+                    yOrigin -= difference
+                    clampedHeight += difference
                     
                 } else {
-                    clampedHeight = preferredSize.height
+                    clampedHeight += difference
                 }
             }
         }

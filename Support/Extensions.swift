@@ -137,7 +137,7 @@ extension CGRect {
 }
 
 extension CGFloat {
-    func clamp(min _minimum: Self, max _maximum: Self) -> Self {
+    func clamped(min _minimum: Self, max _maximum: Self) -> Self {
         return CGFloat.maximum(CGFloat.minimum(_maximum, self), _minimum)
     }
 }
