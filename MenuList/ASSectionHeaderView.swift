@@ -12,7 +12,7 @@ class ASSectionSeparatorView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        heightAnchor.constraint(equalToConstant: 8).isActive = true
+        heightAnchor.constraint(equalToConstant: 8).activate()
         backgroundColor = UIColor.black.withAlphaComponent(0.08)
     }
     

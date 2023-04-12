@@ -12,22 +12,25 @@ import UIPopupMenu
 
 class TestViewController: UIViewController {
     
+    let button1 = UIButton()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = .white
         
-        let button = UIButton()
-        view.addSubview(button)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.centerXAnchor.constraint(equalTo: button.superview!.centerXAnchor).isActive = true
-        button.centerYAnchor.constraint(equalTo: button.superview!.centerYAnchor).isActive = true
         
-        button.setTitle("Custom", for: .normal)
-        button.setTitleColor(UIColor.orange, for: .normal)
+        view.addSubview(button1)
+        button1.center = .init(x: 200, y: 300)
+        button1.translatesAutoresizingMaskIntoConstraints = false
+        button1.centerXAnchor.constraint(equalTo: button1.superview!.centerXAnchor).isActive = true
+        button1.centerYAnchor.constraint(equalTo: button1.superview!.centerYAnchor).isActive = true
         
-        button.setTitle("Custom", for: .highlighted)
-        button.setTitleColor(UIColor.orange, for: .highlighted)
+        button1.setTitle("Custom", for: .normal)
+        button1.setTitleColor(UIColor.orange, for: .normal)
+        
+        button1.setTitle("Custom", for: .highlighted)
+        button1.setTitleColor(UIColor.orange, for: .highlighted)
         
         //button.setBlock(block: { sender in
         //    let alert = UIAlertController(title: "Warning!", message: nil, preferredStyle: .alert)
@@ -65,9 +68,9 @@ class TestViewController: UIViewController {
         button2.setTitle("System", for: .highlighted)
         button2.setTitleColor(UIColor.systemBlue.withAlphaComponent(0.8), for: .highlighted)
         
-        button.addTarget(self, action: #selector(didPressButton(sender:)), for: .touchUpInside)
+        button1.addTarget(self, action: #selector(didPressButton(sender:)), for: .touchUpInside)
         
-        addSelfDragRecognizer(button)
+        addSelfDragRecognizer(button1)
         addSelfDragRecognizer(button2)
         
         if #available(iOS 16.0, *) {
@@ -99,6 +102,19 @@ class TestViewController: UIViewController {
         }
     }
     
+    var fuckingButtonPos: CGPoint = .zero
+    override func viewWillLayoutSubviews() {
+        fuckingButtonPos = button1.center
+        super.viewWillLayoutSubviews()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        button1.center = fuckingButtonPos
+    }
+    
+    var isLoading: Bool = false
     fileprivate func addSelfDragRecognizer(_ button: UIButton) {
         let pan = UIPanGestureRecognizer()
         pan.addTarget(self, action: #selector(didDragCustomButton(sender:)))
@@ -119,42 +135,61 @@ class TestViewController: UIViewController {
     }
     
     @objc func didPressButton(sender: UIButton) {
-        let content = ASPickableListViewController()
-        content.dismissesOnSelection = false
-        content.isMultipleSelectionAllowed = true
+        let content = ASPickableListView()
+        content.dismissesOnSelection = true // false
+        content.isMultipleSelectionAllowed = false // true
         content.dataSource = self
         content.delegate = self
         //content.title = "Test Popup"
         
-        let controller = ASPopupPresentationController(contentViewController: content, originView: sender)
-        present(controller, animated: true)
+        //isLoading = true
+        //content.setLoading(loading: true, animated: false)
+        
+        let presentationView = ASPopupPresentationView(contentView: content, originView: sender)
+        presentationView?.present(animated: true, completion: { [self] success in
+            //isLoading = false
+            //content.setLoading(loading: false, animated: true)
+            //content.tableView.reloadData()
+            //content.tableView.layoutIfNeeded()
+        })
     }
     
-    let data: [[ASPickableListViewController.CellItem]] = [
+    let data: [[ASPickableListView.CellItem]] = [
         [
-            ASPickableListViewController.CellItem(title: "Simple item"),
-            ASPickableListViewController.CellItem(title: "Simple item", subTitle: "with sub title"),
-            ASPickableListViewController.CellItem(title: "Selected item", subTitle: "with sub title", isSelected: true),
-            ASPickableListViewController.CellItem(title: "Disabled item", subTitle: "with sub title", attributes: [.disabled]),
-            ASPickableListViewController.CellItem(title: "Desctructive item", subTitle: "with sub title", attributes: [.destructive]),
+            ASPickableListView.CellItem(title: "Simple item"),
+            ASPickableListView.CellItem(title: "Simple item", subTitle: "with sub title"),
+            ASPickableListView.CellItem(title: "Selected item", subTitle: "with sub title", isSelected: true),
+            ASPickableListView.CellItem(title: "Disabled item", subTitle: "with sub title", attributes: [.disabled]),
+            ASPickableListView.CellItem(title: "Desctructive item", subTitle: "with sub title", attributes: [.destructive]),
         ], [
-            ASPickableListViewController.CellItem(title: "Simple item with very long title that barely fits to the screen", image: UIImage(systemName: "trash"), subTitle: "with sub title that barely fits to the screen", isSelected: true),
-            ASPickableListViewController.CellItem(title: "Simple item with very long title that barely fits to the screen", image: UIImage(systemName: "trash"), subTitle: "with sub title that barely fits to the screen", attributes: [.disabled]),
+            ASPickableListView.CellItem(title: "Simple item with very long title that barely fits to the screen", image: UIImage(systemName: "trash"), subTitle: "with sub title that barely fits to the screen", isSelected: true),
+            ASPickableListView.CellItem(title: "Simple item with very long title that barely fits to the screen", image: UIImage(systemName: "trash"), subTitle: "with sub title that barely fits to the screen", attributes: [.disabled]),
+        ], [
+            ASPickableListView.CellItem(title: "Simple item with very long title that barely fits to the screen", image: UIImage(systemName: "trash"), subTitle: "with sub title that barely fits to the screen", isSelected: true),
+            ASPickableListView.CellItem(title: "Simple item with very long title that barely fits to the screen", image: UIImage(systemName: "trash"), subTitle: "with sub title that barely fits to the screen", attributes: [.disabled]),
         ]
     ]
 }
 
-extension TestViewController: ASPickableListViewControllerDataSource, ASPickableListViewControllerDelegate {
+extension TestViewController: ASPickableListViewDataSource, ASPickableListViewDelegate {
     
-    func numberOfSections(in picker: ASPickableListViewController) -> Int {
+    func numberOfSections(in picker: ASPickableListView) -> Int {
+        if isLoading {
+            return 1
+        }
+        
         return data.count
     }
     
-    func pickerView(_ picker: ASPickableListViewController, numberOfRowsInSection section: Int) -> Int {
+    func pickerView(_ picker: ASPickableListView, numberOfRowsInSection section: Int) -> Int {
+        if isLoading {
+            return 1
+        }
+        
         return data[section].count
     }
     
-    func pickerView(_ picker: ASPickableListViewController, titleForHeaderIn section: Int) -> String? {
+    func pickerView(_ picker: ASPickableListView, titleForHeaderIn section: Int) -> String? {
         switch section {
         case 0:
             return "First section"
@@ -167,14 +202,11 @@ extension TestViewController: ASPickableListViewControllerDataSource, ASPickable
         }
     }
     
-    func pickerView(_ picker: ASPickableListViewController, cellItemFor indexPath: IndexPath) -> ASPickableListViewController.CellItem {
+    func pickerView(_ picker: ASPickableListView, cellItemFor indexPath: IndexPath) -> ASPickableListView.CellItem {
         return data[indexPath.section][indexPath.row]
     }
     
-    func pickerView(_ picker: ASPickableListViewController, didSelectItem item: ASPickableListViewController.CellItem, at indexPath: IndexPath) {
+    func pickerView(_ picker: ASPickableListView, didSelectItem item: ASPickableListView.CellItem, at indexPath: IndexPath) {
         
-        //Title: UIColor.label, 17
-        //Subtitle: 12
-        //Header: UIColor.secondaryLabel 12
     }
 }

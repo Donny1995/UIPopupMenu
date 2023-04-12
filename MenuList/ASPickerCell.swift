@@ -8,19 +8,6 @@
 import Foundation
 import UIKit
 
-//cell
-//offset from left = 32
-//offset from right = 16
-//top-botttom 12
-
-//separator
-//height 8, gray color
-
-//Header
-//left - 32
-//top-bottom 12
-//right 16
-
 class ASPickerCell: UITableViewCell {
     
     var titleLabel = UILabel()
@@ -36,7 +23,6 @@ class ASPickerCell: UITableViewCell {
                 return label
             }()
             
-            label.translatesAutoresizingMaskIntoConstraints = false
             contentView.addSubview(label)
             setNeedsUpdateConstraints()
             return label
@@ -71,12 +57,29 @@ class ASPickerCell: UITableViewCell {
                 return imageView
             }()
             
-            image.translatesAutoresizingMaskIntoConstraints = false
             contentView.addSubview(image)
             setNeedsUpdateConstraints()
             return image
         }
     }
+    
+    private(set) var hasHighlightView: Bool = false
+    lazy var highlightView: UIView = { [unowned self] in
+        let highlightView = UIView()
+        highlightView.translatesAutoresizingMaskIntoConstraints = false
+        highlightView.backgroundColor = UIColor.systemGray4
+        contentView.insertSubview(highlightView, at: 0)
+        hasHighlightView = true
+        
+        NSLayoutConstraint.activate([
+            highlightView.leadingAnchor.constraint(equalTo: highlightView.superview!.leadingAnchor),
+            highlightView.topAnchor.constraint(equalTo: highlightView.superview!.topAnchor),
+            highlightView.bottomAnchor.constraint(equalTo: highlightView.superview!.bottomAnchor),
+            highlightView.trailingAnchor.constraint(equalTo: highlightView.superview!.trailingAnchor),
+        ])
+        
+        return highlightView
+    }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: .default, reuseIdentifier: reuseIdentifier)
@@ -99,12 +102,8 @@ class ASPickerCell: UITableViewCell {
             textContainer.topAnchor.constraint(equalTo: textContainer.owningView!.topAnchor, constant: 12),
             textContainer.leadingAnchor.constraint(equalTo: textContainer.owningView!.leadingAnchor, constant: 32),
             textContainer.bottomAnchor.constraint(equalTo: textContainer.owningView!.bottomAnchor, constant: -12),
-            //textContainer.trailingAnchor.constraint(equalTo: textContainer.owningView!.trailingAnchor, constant: -16).priority(900)
+            textContainer.trailingAnchor.constraint(equalTo: textContainer.owningView!.trailingAnchor, constant: -16).priority(900)
         ])
-        
-        let trailing = textContainer.trailingAnchor.constraint(equalTo: textContainer.owningView!.trailingAnchor, constant: -16)
-        trailing.priority = UILayoutPriority(900)
-        trailing.isActive = true
         
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -155,8 +154,29 @@ class ASPickerCell: UITableViewCell {
         super.updateConstraints()
     }
     
+    var showsLeftImageOnSelect: Bool = true
+    var menuSelectionStyle: ASPickableListView.CellItem.SelectionType? {
+        didSet {
+            guard menuSelectionStyle != oldValue, let menuSelectionStyle else { return }
+            switch menuSelectionStyle {
+            case .gray:
+                selectionStyle = .gray
+                showsLeftImageOnSelect = false
+                
+            case .tick:
+                selectionStyle = .none
+                showsLeftImageOnSelect = true
+            }
+            
+            setSelected(isSelected, animated: false)
+        }
+    }
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
+        let wasSelected = isSelected
+        
         super.setSelected(selected, animated: animated)
+        guard wasSelected != selected && showsLeftImageOnSelect else { return }
         
         func commit() {
             if selected {
@@ -176,6 +196,21 @@ class ASPickerCell: UITableViewCell {
             
         } else {
             commit()
+        }
+    }
+    
+    override func setHighlighted(_ highlighted: Bool, animated: Bool) {
+        if selectionStyle == .none {
+            
+            if highlighted {
+                highlightView.alpha = 1.0
+                
+            } else if hasHighlightView {
+                highlightView.alpha = 0.0
+            }
+            
+        } else {
+            super.setHighlighted(highlighted, animated: animated)
         }
     }
 }

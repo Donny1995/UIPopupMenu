@@ -33,7 +33,7 @@ open class AutoHeightTableView: UITableView {
             
             calculatedSize.height = min(calculatedSize.height, table.maxHeight)
             
-            table.cachedContentHeight = calculatedSize.height
+            table.cachedContentHeight = round(calculatedSize.height)
         }
         
         heightObserver = observe(\.bounds, options: .new) { (table, value) in
@@ -48,6 +48,7 @@ open class AutoHeightTableView: UITableView {
             recalculateIsScrollFlag()
         }
     }
+    
     required public init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -91,11 +92,10 @@ open class AutoHeightTableView: UITableView {
     @discardableResult
     func recalculateIsScrollFlag() -> Bool {
         let isHeightSufficient = cachedFrameHeight > cachedContentHeight || abs(cachedFrameHeight - cachedContentHeight) <= 1/UIScreen.main.scale
-        if isScrollDisabledWhenHeightIsSufficient && isHeightSufficient && bounces {
-            bounces = false
-            
-        } else if bounces == false {
-            bounces = true
+        let shouldNotBounce = isScrollDisabledWhenHeightIsSufficient && isHeightSufficient
+        
+        if bounces == shouldNotBounce {
+            bounces = !shouldNotBounce
         }
         
         return bounces
@@ -109,5 +109,3 @@ open class AutoHeightTableView: UITableView {
         return CGSize(width: UIView.noIntrinsicMetric, height: cachedContentHeight)
     }
 }
-
-

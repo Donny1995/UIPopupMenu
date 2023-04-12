@@ -14,17 +14,16 @@
 		4CC3CC2CDC22F3A2BA45E347F79C9DAD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB6F611E86A4758835A715E4B4184F6 /* Foundation.framework */; };
 		5EA4508286976698D2253139CE5BD07F /* ASCutoutShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE05F780134F2C24FB80C697E48EBF96 /* ASCutoutShadowView.swift */; };
 		66862750585808F6B994F3A70CD82A3F /* ASSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E1F6901FC038552946801C870072A3 /* ASSectionHeaderView.swift */; };
-		7459EF05C49A9D4BDB6482CB9711DEC7 /* ASTableTrackingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEFD7DB0A5F1CB7CEF3ADC33219F98E /* ASTableTrackingController.swift */; };
 		795F553BAE95ED8E914677645EC85D41 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397606D2B7AD27E9D57620CCD15FF634 /* Extensions.swift */; };
 		7F17A449B2FDF46AACA6B0E24DB07FF0 /* UIPopupMenu-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 157FEBF0F30A2C447270A0F0E42FEA16 /* UIPopupMenu-dummy.m */; };
-		807DB65DB05BF05B6BC28FEC1893B3FB /* ASPopupPresentationController + Transition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94877945CA24E5A8DDF1D2A07EDF5DAA /* ASPopupPresentationController + Transition.swift */; };
 		AA78D70F453CC3C3F17421C9BFE77726 /* GenericTableViewHeaderFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FA6476E2FAE2936DFD05E601F4B4F3 /* GenericTableViewHeaderFooterView.swift */; };
-		B27339720CE0472E8E0CAC4377291232 /* ASPopupPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E9DD5CB35054DCAC717C77AA709901 /* ASPopupPresentationController.swift */; };
 		B4AB2780780BB2AAF53E4106B4482143 /* Pods-UIPopupMenu_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A1CE59772E2F64887676982C1F3FA179 /* Pods-UIPopupMenu_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BE32992D7260099039E7A8037B55B1C3 /* AutoHeightTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D2F7D762999DB5B20572023C231EEA /* AutoHeightTableView.swift */; };
+		C0D5CFCE29E5DE0100440B2B /* ASPopupContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D5CFCD29E5DE0100440B2B /* ASPopupContainerView.swift */; };
+		C0D5CFD129E5E06E00440B2B /* ASTableTrackingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D5CFD029E5E06E00440B2B /* ASTableTrackingView.swift */; };
+		C0D5CFD429E5E2A300440B2B /* ASPickableListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D5CFD329E5E2A300440B2B /* ASPickableListView.swift */; };
 		C0DE7F5E29ACE7DA00EB0F94 /* UITableView + StickyHeaders.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DE7F5D29ACE7DA00EB0F94 /* UITableView + StickyHeaders.swift */; };
 		D672670C4F3B28CCEB59158501E0E0A9 /* ASPickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5CD7681B2C065A1B4CE90BECB3EB02 /* ASPickerCell.swift */; };
-		FBCFAA1CEC3B00F3CADA63AC1B712023 /* ASPickableListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7BA6F3730F03F4C9888053227265EB /* ASPickableListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,24 +47,23 @@
 		2BF3C9AC7A65D19A98C79E0D80788505 /* UIPopupMenu-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIPopupMenu-umbrella.h"; sourceTree = "<group>"; };
 		32C927B4E09441B76E6B8D6FEB18BAC1 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		35E1F6901FC038552946801C870072A3 /* ASSectionHeaderView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ASSectionHeaderView.swift; sourceTree = "<group>"; };
-		397606D2B7AD27E9D57620CCD15FF634 /* Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = UIPopupMenu/Classes/Extensions.swift; sourceTree = "<group>"; };
+		397606D2B7AD27E9D57620CCD15FF634 /* Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		40D2F7D762999DB5B20572023C231EEA /* AutoHeightTableView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AutoHeightTableView.swift; sourceTree = "<group>"; };
 		44645BE6F506A786908EAF882F116756 /* Pods-UIPopupMenu_Example */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-UIPopupMenu_Example"; path = Pods_UIPopupMenu_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		44E9DD5CB35054DCAC717C77AA709901 /* ASPopupPresentationController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ASPopupPresentationController.swift; sourceTree = "<group>"; };
 		4D5CD7681B2C065A1B4CE90BECB3EB02 /* ASPickerCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ASPickerCell.swift; sourceTree = "<group>"; };
 		5F2B514C14CD938BB815617C2EEED88E /* UIPopupMenu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = UIPopupMenu.release.xcconfig; sourceTree = "<group>"; };
-		7D7BA6F3730F03F4C9888053227265EB /* ASPickableListViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ASPickableListViewController.swift; sourceTree = "<group>"; };
 		7EAC18ADB15B1C21D4F2FE9B5C8CE87C /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		8F6C69E0AFE6552A9227938459F84D8F /* UIPopupMenu-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "UIPopupMenu-Info.plist"; sourceTree = "<group>"; };
-		94877945CA24E5A8DDF1D2A07EDF5DAA /* ASPopupPresentationController + Transition.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "ASPopupPresentationController + Transition.swift"; sourceTree = "<group>"; };
 		98D7240C71A7A82B35FCA201B2823BF8 /* Pods-UIPopupMenu_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-UIPopupMenu_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A1CE59772E2F64887676982C1F3FA179 /* Pods-UIPopupMenu_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-UIPopupMenu_Example-umbrella.h"; sourceTree = "<group>"; };
 		A24BAD795E4D052F17E316BCE6968A85 /* Pods-UIPopupMenu_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-UIPopupMenu_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		A4FA6476E2FAE2936DFD05E601F4B4F3 /* GenericTableViewHeaderFooterView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GenericTableViewHeaderFooterView.swift; sourceTree = "<group>"; };
-		AEEFD7DB0A5F1CB7CEF3ADC33219F98E /* ASTableTrackingController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ASTableTrackingController.swift; sourceTree = "<group>"; };
 		B330D65D3E9CA819D45AAAB226B067E9 /* UIPopupMenu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = UIPopupMenu.debug.xcconfig; sourceTree = "<group>"; };
 		C0A33530B843808C83DA82D378500950 /* UIPopupMenu-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIPopupMenu-prefix.pch"; sourceTree = "<group>"; };
+		C0D5CFCD29E5DE0100440B2B /* ASPopupContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASPopupContainerView.swift; sourceTree = "<group>"; };
+		C0D5CFD029E5E06E00440B2B /* ASTableTrackingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASTableTrackingView.swift; sourceTree = "<group>"; };
+		C0D5CFD329E5E2A300440B2B /* ASPickableListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASPickableListView.swift; sourceTree = "<group>"; };
 		C0DE7F5D29ACE7DA00EB0F94 /* UITableView + StickyHeaders.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView + StickyHeaders.swift"; sourceTree = "<group>"; };
 		C3A8D6A1E09C72C14874AC1D12DA5A50 /* Pods-UIPopupMenu_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-UIPopupMenu_Example-Info.plist"; sourceTree = "<group>"; };
 		CE05F780134F2C24FB80C697E48EBF96 /* ASCutoutShadowView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ASCutoutShadowView.swift; sourceTree = "<group>"; };
@@ -154,8 +152,7 @@
 			children = (
 				C0DE7F5B29ACE76D00EB0F94 /* PopupController */,
 				C0DE7F5C29ACE78200EB0F94 /* MenuList */,
-				397606D2B7AD27E9D57620CCD15FF634 /* Extensions.swift */,
-				C0DE7F5D29ACE7DA00EB0F94 /* UITableView + StickyHeaders.swift */,
+				C0D5CFCF29E5DE1C00440B2B /* Support */,
 				05F2ABDFB6D15AC23DAEE6F114B314A5 /* Pod */,
 				D11B756C495E05FE44469BFDD4D8E63E /* Support Files */,
 			);
@@ -163,12 +160,29 @@
 			path = ../..;
 			sourceTree = "<group>";
 		};
+		C0D5CFCF29E5DE1C00440B2B /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				40D2F7D762999DB5B20572023C231EEA /* AutoHeightTableView.swift */,
+				C0DE7F5D29ACE7DA00EB0F94 /* UITableView + StickyHeaders.swift */,
+				397606D2B7AD27E9D57620CCD15FF634 /* Extensions.swift */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		C0D5CFD229E5E27C00440B2B /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		C0DE7F5B29ACE76D00EB0F94 /* PopupController */ = {
 			isa = PBXGroup;
 			children = (
+				C0D5CFD229E5E27C00440B2B /* New Group */,
+				C0D5CFCD29E5DE0100440B2B /* ASPopupContainerView.swift */,
 				CE05F780134F2C24FB80C697E48EBF96 /* ASCutoutShadowView.swift */,
-				44E9DD5CB35054DCAC717C77AA709901 /* ASPopupPresentationController.swift */,
-				94877945CA24E5A8DDF1D2A07EDF5DAA /* ASPopupPresentationController + Transition.swift */,
 			);
 			path = PopupController;
 			sourceTree = "<group>";
@@ -176,9 +190,8 @@
 		C0DE7F5C29ACE78200EB0F94 /* MenuList */ = {
 			isa = PBXGroup;
 			children = (
-				40D2F7D762999DB5B20572023C231EEA /* AutoHeightTableView.swift */,
-				AEEFD7DB0A5F1CB7CEF3ADC33219F98E /* ASTableTrackingController.swift */,
-				7D7BA6F3730F03F4C9888053227265EB /* ASPickableListViewController.swift */,
+				C0D5CFD029E5E06E00440B2B /* ASTableTrackingView.swift */,
+				C0D5CFD329E5E2A300440B2B /* ASPickableListView.swift */,
 				4D5CD7681B2C065A1B4CE90BECB3EB02 /* ASPickerCell.swift */,
 				A4FA6476E2FAE2936DFD05E601F4B4F3 /* GenericTableViewHeaderFooterView.swift */,
 				35E1F6901FC038552946801C870072A3 /* ASSectionHeaderView.swift */,
@@ -339,12 +352,11 @@
 			files = (
 				5EA4508286976698D2253139CE5BD07F /* ASCutoutShadowView.swift in Sources */,
 				C0DE7F5E29ACE7DA00EB0F94 /* UITableView + StickyHeaders.swift in Sources */,
-				FBCFAA1CEC3B00F3CADA63AC1B712023 /* ASPickableListViewController.swift in Sources */,
+				C0D5CFD129E5E06E00440B2B /* ASTableTrackingView.swift in Sources */,
+				C0D5CFCE29E5DE0100440B2B /* ASPopupContainerView.swift in Sources */,
 				D672670C4F3B28CCEB59158501E0E0A9 /* ASPickerCell.swift in Sources */,
-				B27339720CE0472E8E0CAC4377291232 /* ASPopupPresentationController.swift in Sources */,
-				807DB65DB05BF05B6BC28FEC1893B3FB /* ASPopupPresentationController + Transition.swift in Sources */,
 				66862750585808F6B994F3A70CD82A3F /* ASSectionHeaderView.swift in Sources */,
-				7459EF05C49A9D4BDB6482CB9711DEC7 /* ASTableTrackingController.swift in Sources */,
+				C0D5CFD429E5E2A300440B2B /* ASPickableListView.swift in Sources */,
 				BE32992D7260099039E7A8037B55B1C3 /* AutoHeightTableView.swift in Sources */,
 				795F553BAE95ED8E914677645EC85D41 /* Extensions.swift in Sources */,
 				AA78D70F453CC3C3F17421C9BFE77726 /* GenericTableViewHeaderFooterView.swift in Sources */,

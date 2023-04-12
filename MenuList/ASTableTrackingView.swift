@@ -1,19 +1,22 @@
 //
-//  ASTableTrackingController.swift
-//  UIComponents
+//  ASTableTrackingView.swift
+//  UIPopupMenu
 //
-//  Created by Alexandr Sivash on 20.02.2023.
+//  Created by Alexandr Sivash on 11.04.2023.
 //
 
 import Foundation
 import UIKit
-/*
-open class ASTableTrackingController: UIViewController {
+
+open class ASTableTrackingView: UIView, ASPopupPresentationViewContentDynamicSize {
+    
+    public var title: String?
+    open var isFlashingScrollIndicatorsOnAppear = true
     
     public let tableView = AutoHeightTableView()
     public func updatePreferredContentSize() {
         let newSize = CGSize(
-            width: UIScreen.main.bounds.width * 0.6,
+            width: UIScreen.main.bounds.width * 0.58,
             height: max(40, self.tableView.cachedContentHeight + (headerView?.frame.height ?? 0) + (footerView?.frame.height ?? 0))
         )
         
@@ -23,27 +26,52 @@ open class ASTableTrackingController: UIViewController {
         }
     }
     
+    public var preferredContentSizeDidChange: ((CGSize) -> Void)?
+    public var preferredContentSize: CGSize = .zero {
+        didSet {
+            guard preferredContentSize != oldValue else { return }
+            preferredContentSizeDidChange?(preferredContentSize)
+        }
+    }
+    
     var tableHeightObserver: NSKeyValueObservation?
     var lastRequestedPreferredContentSize: CGSize?
     
-    open override func viewDidLoad() {
-        super.viewDidLoad()
+    open override func didMoveToWindow() {
+        super.didMoveToWindow()
+        
+        if !isViewLoaded {
+            viewDidLoad()
+        }
+        
+        if isFlashingScrollIndicatorsOnAppear {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { [weak self] in
+                guard let self = self else { return }
+                if self.tableView.isScrollEnabled && self.tableView.bounces {
+                    self.tableView.flashScrollIndicators()
+                }
+            }
+        }
+    }
+    
+    var isViewLoaded: Bool = false
+    open func viewDidLoad() {
+        isViewLoaded = true
         
         tableView.backgroundColor = .clear
         tableView.estimatedRowHeight = 40
+        tableView.estimatedSectionHeaderHeight = 40
         tableView.rowHeight = UITableView.automaticDimension
         tableView.separatorInset = .zero
         tableView.isScrollDisabledWhenHeightIsSufficient = true
-        
+        tableView.showsVerticalScrollIndicator = true
+        tableView.scrollIndicatorInsets = .init(top: 8, left: 0, bottom: 8, right: 0)
         if #available(iOS 15.0, *) {
             tableView.sectionHeaderTopPadding = 0
         }
         
-        //view.setNeedsUpdateConstraints()
-        //view.updateConstraintsIfNeeded()
-        
         tableView.reloadData()
-        view.layoutIfNeeded()
+        layoutIfNeeded()
         
         tableHeightObserver = tableView.observe(\.cachedContentHeight) { [weak self] _, _ in
             self?.updatePreferredContentSize()
@@ -56,10 +84,10 @@ open class ASTableTrackingController: UIViewController {
         didSet {
             guard headerView != oldValue else { return }
             headerViewNeedsStrongUpdate = true
-            view.setNeedsUpdateConstraints()
+            setNeedsUpdateConstraints()
             if let newHeader = headerView {
                 newHeader.translatesAutoresizingMaskIntoConstraints = false
-                view.addSubview(newHeader)
+                addSubview(newHeader)
             } else {
                 oldValue?.removeFromSuperview()
             }
@@ -72,24 +100,22 @@ open class ASTableTrackingController: UIViewController {
         didSet{
             guard footerView != oldValue else { return }
             footerViewNeedsStrongUpdate = true
-            view.setNeedsUpdateConstraints()
+            setNeedsUpdateConstraints()
             if let newFooter = footerView {
                 newFooter.translatesAutoresizingMaskIntoConstraints = false
-                view.addSubview(newFooter)
+                addSubview(newFooter)
             } else {
                 oldValue?.removeFromSuperview()
             }
         }
     }
     
-    open override func updateViewConstraints() {
-        
+    open override func updateConstraints() {
         let tableNeedsUpdate = headerViewNeedsStrongUpdate || footerViewNeedsStrongUpdate || tableView.superview == nil
         
         //header
         if headerViewNeedsStrongUpdate {
             headerViewNeedsStrongUpdate = false
-            
             if let headerView {
                 headerView.eraseConstraints()
                 NSLayoutConstraint.activate([
@@ -102,42 +128,62 @@ open class ASTableTrackingController: UIViewController {
         
         //table
         if tableView.superview == nil {
-            view.addSubview(tableView)
+            tableView.frame = .init(
+                origin: .init(x: 0, y: headerView?.frame.maxY ?? 0),
+                size: .init(width: frame.width, height: frame.height - (headerView?.frame.height ?? 0) - (footerView?.frame.height ?? 0))
+            )
+            
+            addSubview(tableView)
         }
         
         if tableNeedsUpdate {
             tableView.eraseConstraints()
-            if let header = headerView {
-                tableView.topAnchor.constraint(equalTo: header.bottomAnchor).isActive = true
-            } else {
-                tableView.topAnchor.constraint(equalTo: tableView.superview!.topAnchor).isActive = true
-            }
-            
-            tableView.leadingAnchor.constraint(equalTo: tableView.superview!.leadingAnchor).isActive = true
-            tableView.trailingAnchor.constraint(equalTo: tableView.superview!.trailingAnchor).isActive = true
-            
-            if let footer = footerView {
-                tableView.bottomAnchor.constraint(equalTo: footer.topAnchor).isActive = true
-            } else {
-                tableView.bottomAnchor.constraint(equalTo: tableView.superview!.bottomAnchor).isActive = true
-            }
+            NSLayoutConstraint.activate([
+                tableView.topAnchor.constraint(equalTo: headerView?.bottomAnchor ?? topAnchor),
+                tableView.leadingAnchor.constraint(equalTo: tableView.superview!.leadingAnchor),
+                tableView.trailingAnchor.constraint(equalTo: tableView.superview!.trailingAnchor),
+                tableView.bottomAnchor.constraint(equalTo: footerView?.topAnchor ?? bottomAnchor),
+            ])
         }
         
         //footer
         if footerViewNeedsStrongUpdate {
             footerViewNeedsStrongUpdate = false
-            
             if let footerView {
                 footerView.eraseConstraints()
                 NSLayoutConstraint.activate([
                     footerView.leadingAnchor.constraint(equalTo: footerView.superview!.leadingAnchor),
                     footerView.trailingAnchor.constraint(equalTo: footerView.superview!.trailingAnchor),
-                    footerView.bottomAnchor.constraint(equalTo: footerView.superview!.bottomAnchor),
+                    footerView.bottomAnchor.constraint(equalTo: footerView.superview!.topAnchor),
                 ])
             }
         }
         
-        super.updateViewConstraints()
+        super.updateConstraints()
     }
 }
-*/
+
+extension UIView {
+    func eraseConstraints() {
+        
+        //NSLayoutConstraint.deactivate(constraints)
+        
+        if let superview {
+            for constraint in superview.constraints {
+                let sself = ObjectIdentifier(self)
+                
+                if let firstItem = constraint.firstItem {
+                    if ObjectIdentifier(firstItem) == sself {
+                        constraint.isActive = false
+                    }
+                }
+                
+                if let secondItem = constraint.secondItem {
+                    if ObjectIdentifier(secondItem) == sself {
+                        constraint.isActive = false
+                    }
+                }
+            }
+        }
+    }
+}
