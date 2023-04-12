@@ -131,7 +131,7 @@ public class ASPopupPresentationView: UIView {
     var cachedSizeOfContentView: CGSize?
     func contentViewPreferredContentSizeDidChange(newSize: CGSize) {
         
-        guard !contentViewSizeUpdateLocked || !isBeingPresented else {
+        guard !(contentViewSizeUpdateLocked && isBeingPresented && isBeingDismissed) else {
             contentViewSizeChangedDuringLock = true
             return
         }
@@ -155,7 +155,7 @@ public class ASPopupPresentationView: UIView {
             updateShadowParams()
         }
         
-        if isBeingPresented {
+        if isBeingPresented || isBeingDismissed {
             performAnimationActions()
             
         } else {
@@ -167,8 +167,8 @@ public class ASPopupPresentationView: UIView {
     }
     
     func updateShadowParams() {
-        let criteria = min(64, min(containerView.bounds.height, containerView.bounds.width))
-        layer.shadowOpacity = 1.0 - Float(criteria * (1 - 0.32) / 64.0) //По приближении
+        let criteria = min(85, min(containerView.bounds.height, containerView.bounds.width))
+        layer.shadowOpacity = 1.0 - Float(criteria * (1 - 0.17) / 85)
     }
     
     ///Return true, if content view is oriented from to to bottom
@@ -298,7 +298,7 @@ public class ASPopupPresentationView: UIView {
         
         if canOverlapSourceViewRect {
             let clampedScaleFactor = overlapSourceViewRectScaleFactor.clamped(min: 0.0, max: 1.0)
-            let overlapScaledHeight = min(availableArea.height, preferredSize.height) * overlapSourceViewRectScaleFactor
+            let overlapScaledHeight = min(availableArea.height, preferredSize.height) * clampedScaleFactor
             if clampedHeight < overlapScaledHeight {
                 let difference = overlapScaledHeight - clampedHeight
                 if goesBelow {
@@ -316,10 +316,8 @@ public class ASPopupPresentationView: UIView {
             size: CGSize(width: clampedWidth, height: clampedHeight)
         )
         
-        print(finalFrame)
         return (finalFrame, goesBelow)
     }
-    
     
     //MARK: - 📦 Transitions
     
@@ -479,8 +477,16 @@ public class ASPopupPresentationView: UIView {
             return super.hitTest(point, with: event)
             
         } else {
-            dismiss(animated: true)
-            return nil
+            defer {
+                dismiss(animated: true)
+            }
+            
+            if let originViewFrame = originView?.globalFrame, originViewFrame.contains(point) {
+                return self
+                
+            } else {
+                return nil
+            }
         }
     }
 }

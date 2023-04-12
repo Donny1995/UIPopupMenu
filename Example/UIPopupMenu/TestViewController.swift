@@ -154,12 +154,12 @@ class TestViewController: UIViewController {
         content.setLoading(loading: true, animated: false)
         
         let presentationView = ASPopupPresentationView(contentView: content, originView: sender)
-        presentationView?.canOverlapSourceViewRect = true
-        presentationView?.present(animated: true, completion: { [self] success in
-            isLoading = false
+        presentationView?.present(animated: true)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            self.isLoading = false
             content.setLoading(loading: false, animated: true)
             content.tableView.reloadData()
-        })
+        }
     }
     
     let data: [[ASPickableListView.CellItem]] = [

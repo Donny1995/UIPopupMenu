@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-open class AutoHeightTableView: UITableView {
+class AutoHeightTableView: UITableView {
     
     var contentSizeObserver: NSObjectProtocol?
     var heightObserver: NSObjectProtocol?

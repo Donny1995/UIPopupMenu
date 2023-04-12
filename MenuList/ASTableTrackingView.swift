@@ -13,11 +13,13 @@ open class ASTableTrackingView: UIView, ASPopupPresentationViewContentDynamicSiz
     public var title: String?
     open var isFlashingScrollIndicatorsOnAppear = true
     
-    public let tableView = AutoHeightTableView()
+    let autoheightTableView = AutoHeightTableView()
+    public var tableView: UITableView { autoheightTableView }
+    
     public func updatePreferredContentSize() {
         let newSize = CGSize(
             width: UIScreen.main.bounds.width * 0.58,
-            height: max(40, self.tableView.cachedContentHeight + (headerView?.frame.height ?? 0) + (footerView?.frame.height ?? 0))
+            height: max(40, self.autoheightTableView.cachedContentHeight + (headerView?.frame.height ?? 0) + (footerView?.frame.height ?? 0))
         )
         
         if lastRequestedPreferredContentSize != newSize {
@@ -47,8 +49,8 @@ open class ASTableTrackingView: UIView, ASPopupPresentationViewContentDynamicSiz
         if isFlashingScrollIndicatorsOnAppear {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { [weak self] in
                 guard let self = self else { return }
-                if self.tableView.isScrollEnabled && self.tableView.bounces {
-                    self.tableView.flashScrollIndicators()
+                if self.autoheightTableView.isScrollEnabled && self.autoheightTableView.bounces {
+                    self.autoheightTableView.flashScrollIndicators()
                 }
             }
         }
@@ -58,22 +60,22 @@ open class ASTableTrackingView: UIView, ASPopupPresentationViewContentDynamicSiz
     open func viewDidLoad() {
         isViewLoaded = true
         
-        tableView.backgroundColor = .clear
-        tableView.estimatedRowHeight = 40
-        tableView.estimatedSectionHeaderHeight = 40
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.separatorInset = .zero
-        tableView.isScrollDisabledWhenHeightIsSufficient = true
-        tableView.showsVerticalScrollIndicator = true
-        tableView.scrollIndicatorInsets = .init(top: 8, left: 0, bottom: 8, right: 0)
+        autoheightTableView.backgroundColor = .clear
+        autoheightTableView.estimatedRowHeight = 40
+        autoheightTableView.estimatedSectionHeaderHeight = 40
+        autoheightTableView.rowHeight = UITableView.automaticDimension
+        autoheightTableView.separatorInset = .zero
+        autoheightTableView.isScrollDisabledWhenHeightIsSufficient = true
+        autoheightTableView.showsVerticalScrollIndicator = true
+        autoheightTableView.scrollIndicatorInsets = .init(top: 8, left: 0, bottom: 8, right: 0)
         if #available(iOS 15.0, *) {
-            tableView.sectionHeaderTopPadding = 0
+            autoheightTableView.sectionHeaderTopPadding = 0
         }
         
-        tableView.reloadData()
+        autoheightTableView.reloadData()
         layoutIfNeeded()
         
-        tableHeightObserver = tableView.observe(\.cachedContentHeight) { [weak self] _, _ in
+        tableHeightObserver = autoheightTableView.observe(\.cachedContentHeight) { [weak self] _, _ in
             self?.updatePreferredContentSize()
         }
     }
@@ -111,7 +113,7 @@ open class ASTableTrackingView: UIView, ASPopupPresentationViewContentDynamicSiz
     }
     
     open override func updateConstraints() {
-        let tableNeedsUpdate = headerViewNeedsStrongUpdate || footerViewNeedsStrongUpdate || tableView.superview == nil
+        let tableNeedsUpdate = headerViewNeedsStrongUpdate || footerViewNeedsStrongUpdate || autoheightTableView.superview == nil
         
         //header
         if headerViewNeedsStrongUpdate {
@@ -127,22 +129,22 @@ open class ASTableTrackingView: UIView, ASPopupPresentationViewContentDynamicSiz
         }
         
         //table
-        if tableView.superview == nil {
-            tableView.frame = .init(
+        if autoheightTableView.superview == nil {
+            autoheightTableView.frame = .init(
                 origin: .init(x: 0, y: headerView?.frame.maxY ?? 0),
                 size: .init(width: frame.width, height: frame.height - (headerView?.frame.height ?? 0) - (footerView?.frame.height ?? 0))
             )
             
-            addSubview(tableView)
+            addSubview(autoheightTableView)
         }
         
         if tableNeedsUpdate {
-            tableView.eraseConstraints()
+            autoheightTableView.eraseConstraints()
             NSLayoutConstraint.activate([
-                tableView.topAnchor.constraint(equalTo: headerView?.bottomAnchor ?? topAnchor),
-                tableView.leadingAnchor.constraint(equalTo: tableView.superview!.leadingAnchor),
-                tableView.trailingAnchor.constraint(equalTo: tableView.superview!.trailingAnchor),
-                tableView.bottomAnchor.constraint(equalTo: footerView?.topAnchor ?? bottomAnchor),
+                autoheightTableView.topAnchor.constraint(equalTo: headerView?.bottomAnchor ?? topAnchor),
+                autoheightTableView.leadingAnchor.constraint(equalTo: autoheightTableView.superview!.leadingAnchor),
+                autoheightTableView.trailingAnchor.constraint(equalTo: autoheightTableView.superview!.trailingAnchor),
+                autoheightTableView.bottomAnchor.constraint(equalTo: footerView?.topAnchor ?? bottomAnchor),
             ])
         }
         
