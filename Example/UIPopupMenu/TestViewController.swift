@@ -173,12 +173,6 @@ class TestViewController: UIViewController {
             ASPickableListView.CellItem(title: "Simple item with very long title that barely fits to the screen", image: UIImage(systemName: "trash"), subTitle: "with sub title that barely fits to the screen", isSelected: true),
             ASPickableListView.CellItem(title: "Simple item with very long title that barely fits to the screen", image: UIImage(systemName: "trash"), subTitle: "with sub title that barely fits to the screen", attributes: [.disabled]),
         ], [
-            ASPickableListView.CellItem(title: "Simple item with very long title that barely fits to the screen", image: UIImage(systemName: "trash"), subTitle: "with sub title that barely fits to the screen", isSelected: true),
-            ASPickableListView.CellItem(title: "Simple item with very long title that barely fits to the screen", image: UIImage(systemName: "trash"), subTitle: "with sub title that barely fits to the screen", attributes: [.disabled]),
-        ], [
-            ASPickableListView.CellItem(title: "Simple item with very long title that barely fits to the screen", image: UIImage(systemName: "trash"), subTitle: "with sub title that barely fits to the screen", isSelected: true),
-            ASPickableListView.CellItem(title: "Simple item with very long title that barely fits to the screen", image: UIImage(systemName: "trash"), subTitle: "with sub title that barely fits to the screen", attributes: [.disabled]),
-        ], [
             ASPickableListView.CellItem(title: "Simple item"),
             ASPickableListView.CellItem(title: "Simple item", subTitle: "with sub title"),
             ASPickableListView.CellItem(title: "Selected item", subTitle: "with sub title", isSelected: true),

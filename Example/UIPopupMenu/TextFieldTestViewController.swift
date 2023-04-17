@@ -68,7 +68,7 @@ class TextFieldTestViewController: UIViewController {
         textField.addTarget(self, action: #selector(textFieldTextChanged(sender:)), for: .editingChanged)
         
         NSLayoutConstraint.activate([
-            textField.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 200),
+            textField.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 600),
             textField.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 16),
             textField.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -16),
             textField.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -1200)

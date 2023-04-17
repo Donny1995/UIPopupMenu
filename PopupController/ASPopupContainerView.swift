@@ -319,10 +319,6 @@ public class ASPopupPresentationView: UIView {
             size: CGSize(width: clampedWidth, height: clampedHeight)
         )
         
-        if finalFrame.origin.x >= 100 {
-            print("wut")
-        }
-        
         return (finalFrame, goesBelow)
     }
     
