@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'UIPopupMenu'
-  s.version          = '1.1.1'
+  s.version          = '1.1.2'
   s.summary          = 'Framework for creating UIMenu alike controllers just like Apple\'s'
   s.description      = <<-DESC
 This took hours to replicate

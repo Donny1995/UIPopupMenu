@@ -167,7 +167,7 @@ public class ASPopupPresentationView: UIView {
     
     func updateShadowParams() {
         let criteria = min(85, min(containerView.bounds.height, containerView.bounds.width))
-        layer.shadowOpacity = 1.0 - Float(criteria * (1 - 0.17) / 85)
+        layer.shadowOpacity = 1.0 - Float(criteria * (1 - 0.22) / 85)
     }
     
     ///Return true, if content view is oriented from to to bottom

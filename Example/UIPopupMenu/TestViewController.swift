@@ -72,9 +72,9 @@ class TestViewController: UIViewController {
         button2.bottomAnchor.constraint(equalTo: button2.superview!.bottomAnchor, constant: -400).isActive = true
         button2.setTitle("System", for: .normal)
         button2.setTitleColor(UIColor.systemBlue, for: .normal)
-        
-        button2.setTitle("System", for: .highlighted)
-        button2.setTitleColor(UIColor.systemBlue.withAlphaComponent(0.8), for: .highlighted)
+        button2.setTitleColor(UIColor.systemBlue.withAlphaComponent(0.3), for: .highlighted)
+        button2.setTitleColor(UIColor.systemBlue.withAlphaComponent(0.3), for: .selected)
+        button2.addTarget(self, action: #selector(didPressButton2(sender:)), for: .touchUpInside)
         
         button1.addTarget(self, action: #selector(didPressButton(sender:)), for: .touchUpInside)
         
@@ -159,6 +159,15 @@ class TestViewController: UIViewController {
             self.isLoading = false
             content.setLoading(loading: false, animated: true)
             content.tableView.reloadData()
+        }
+    }
+    
+    @objc func didPressButton2(sender: UIButton) {
+        let alert = UIAlertController(title: "Hello", message: nil, preferredStyle: .alert)
+        present(alert, animated: true) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                alert.dismiss(animated: true)
+            }
         }
     }
     
