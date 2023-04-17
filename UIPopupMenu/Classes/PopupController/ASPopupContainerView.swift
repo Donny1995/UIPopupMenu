@@ -241,6 +241,8 @@ public class ASPopupPresentationView: UIView {
                 right: max(cachedSafeInsets.right, 16)
             ))
             
+            
+            
             let keyboardFrame = KeyboardListener.keyboardRect
             if keyboardFrame != CGRect.null {
                 cachedSafeInsets.bottom += keyboardFrame.height

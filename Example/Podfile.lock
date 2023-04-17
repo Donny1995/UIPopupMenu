@@ -1,5 +1,5 @@
 PODS:
-  - UIPopupMenu (1.0.0)
+  - UIPopupMenu (1.1.1)
 
 DEPENDENCIES:
   - UIPopupMenu (from `../`)
@@ -9,8 +9,8 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  UIPopupMenu: d2cb3c093d50b44e0dfdbd5f2126718aa0793a86
+  UIPopupMenu: a4e5eb5e24539313b892fd0c13b4dbdf093acad8
 
 PODFILE CHECKSUM: b584485a07480c844e5da5c0f2d9cbb94675c43b
 
-COCOAPODS: 1.11.3
+COCOAPODS: 1.12.0

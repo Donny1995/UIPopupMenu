@@ -1,6 +1,6 @@
 {
   "name": "UIPopupMenu",
-  "version": "1.0.0",
+  "version": "1.1.1",
   "summary": "Framework for creating UIMenu alike controllers just like Apple's",
   "description": "This took hours to replicate",
   "homepage": "https://github.com/Donny1995/UIPopupMenu",
@@ -13,13 +13,14 @@
   },
   "source": {
     "git": "https://github.com/Donny1995/UIPopupMenu.git",
-    "tag": "1.0.0"
+    "tag": "1.1.1"
   },
   "platforms": {
     "ios": "13.0"
   },
   "swift_versions": "5.0",
-  "source_files": "UIPopupMenu/Classes/**/*",
+  "source_files": "UIPopupMenu/Classes/**/**",
   "frameworks": "UIKit",
+  "public_header_files": "Pod/Classes/UIPopupMenu/Classes/KeyboardListner.h",
   "swift_version": "5.0"
 }
