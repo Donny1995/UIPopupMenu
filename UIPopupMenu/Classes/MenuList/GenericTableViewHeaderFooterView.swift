@@ -13,7 +13,7 @@ class GenericTableViewHeaderFooterView<ContainedType: UIView> : UITableViewHeade
     
     //MARK: - ❐ Variables
     
-    open var contentInset: UIEdgeInsets = .zero {
+    var contentInset: UIEdgeInsets = .zero {
         didSet {
             guard contentInset != oldValue else { return }
             topConstraint?.constant = contentInset.top

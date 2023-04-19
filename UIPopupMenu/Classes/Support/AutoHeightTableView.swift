@@ -13,7 +13,7 @@ class AutoHeightTableView: UITableView {
     var contentSizeObserver: NSObjectProtocol?
     var heightObserver: NSObjectProtocol?
     
-    override public init(frame: CGRect, style: UITableView.Style) {
+    override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
         translatesAutoresizingMaskIntoConstraints = false
         showsVerticalScrollIndicator = false
@@ -42,7 +42,7 @@ class AutoHeightTableView: UITableView {
         }
     }
     
-    public var isScrollDisabledWhenHeightIsSufficient: Bool = false {
+    var isScrollDisabledWhenHeightIsSufficient: Bool = false {
         didSet {
             guard isScrollDisabledWhenHeightIsSufficient != oldValue else { return }
             recalculateIsScrollFlag()
@@ -68,24 +68,24 @@ class AutoHeightTableView: UITableView {
         }
     }
     
-    public var maxHeight: CGFloat = UIScreen.main.bounds.size.height {
+    var maxHeight: CGFloat = UIScreen.main.bounds.size.height {
         didSet {
             guard oldValue != maxHeight else { return }
             invalidateIntrinsicContentSize()
         }
     }
   
-    override open func reloadData() {
+    override func reloadData() {
         super.reloadData()
         invalidateIntrinsicContentSize()
     }
     
-    open override func endUpdates() {
+    override func endUpdates() {
         super.endUpdates()
         invalidateIntrinsicContentSize()
     }
     
-    open override func performBatchUpdates(_ updates: (() -> Void)?, completion: ((Bool) -> Void)? = nil) {
+    override func performBatchUpdates(_ updates: (() -> Void)?, completion: ((Bool) -> Void)? = nil) {
         super.performBatchUpdates(updates, completion: completion)
     }
     
@@ -101,11 +101,11 @@ class AutoHeightTableView: UITableView {
         return bounces
     }
     
-    open override func invalidateIntrinsicContentSize() {
+    override func invalidateIntrinsicContentSize() {
         super.invalidateIntrinsicContentSize()
     }
   
-    override open var intrinsicContentSize: CGSize {
+    override var intrinsicContentSize: CGSize {
         return CGSize(width: UIView.noIntrinsicMetric, height: cachedContentHeight)
     }
 }
