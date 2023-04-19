@@ -6,6 +6,9 @@
 [![Platform](https://img.shields.io/cocoapods/p/UIPopupMenu.svg?style=flat)](https://cocoapods.org/pods/UIPopupMenu)
 
 ## Example
+This repo adds for `UIMenu` alike container view for any custom content and also a `UIMenu` alike tableView with dynamic elements iOS 13 and above. Table also supports content loading phase. 
+
+<img src="https://user-images.githubusercontent.com/16597953/232462466-3eba926b-8c6b-49a8-9a0f-85efbd269d24.png" width=30% height=30%>
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
