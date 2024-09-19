@@ -1,5 +1,5 @@
 # UIPopupMenu
-This repo is a reinplementation of Apple's UIMenu interfaces for further usege with anything and anywhere, not just where Apple allowed.
+This repo is a reimplementation of Apple's UIMenu interfaces for further usege with anything and anywhere, not just where Apple allowed.
 `UIMenu` alike container view for any custom content and also a `UIMenu` alike tableView with dynamic elements for iOS 13 and above. 
 Table also supports content loading phase. 
 
