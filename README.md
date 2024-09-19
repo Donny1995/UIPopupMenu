@@ -1,13 +1,9 @@
 # UIPopupMenu
-
-[![CI Status](https://img.shields.io/travis/Donny1995/UIPopupMenu.svg?style=flat)](https://travis-ci.org/Donny1995/UIPopupMenu)
-[![Version](https://img.shields.io/cocoapods/v/UIPopupMenu.svg?style=flat)](https://cocoapods.org/pods/UIPopupMenu)
-[![License](https://img.shields.io/cocoapods/l/UIPopupMenu.svg?style=flat)](https://cocoapods.org/pods/UIPopupMenu)
-[![Platform](https://img.shields.io/cocoapods/p/UIPopupMenu.svg?style=flat)](https://cocoapods.org/pods/UIPopupMenu)
+This repo is a reinplementation of Apple's UIMenu interfaces for further usege with anything and anywhere, not just where Apple allowed.
+`UIMenu` alike container view for any custom content and also a `UIMenu` alike tableView with dynamic elements for iOS 13 and above. 
+Table also supports content loading phase. 
 
 ## Example
-This repo adds for `UIMenu` alike container view for any custom content and also a `UIMenu` alike tableView with dynamic elements iOS 13 and above. Table also supports content loading phase. 
-
 <img src="https://user-images.githubusercontent.com/16597953/232462466-3eba926b-8c6b-49a8-9a0f-85efbd269d24.png" width=30% height=30%>
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
@@ -20,7 +16,7 @@ UIPopupMenu is available through [CocoaPods](https://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod 'UIPopupMenu'
+pod 'UIPopupMenu', :git => 'git@github.com:Donny1995/UIPopupMenu.git'
 ```
 
 ## Author
